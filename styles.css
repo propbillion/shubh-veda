@@ -507,8 +507,8 @@ button { font-family: inherit; cursor: pointer; }
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.7) 100%),
-    radial-gradient(ellipse at center, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.4) 100%);
+    linear-gradient(180deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.62) 40%, rgba(0,0,0,0.88) 100%),
+    radial-gradient(ellipse at center, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.60) 100%);
 }
 
 .hero-inner {
