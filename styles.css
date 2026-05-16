@@ -3406,3 +3406,23 @@ img[loading="lazy"].img-loaded {
   border-radius: 10px;
   padding: 0.75rem 1.4rem;
 }
+/* Hero config pill - glass box override */
+p.hero-headline-v2.hero-config-pill {
+  display: inline-block !important;
+  background: rgba(0, 0, 0, 0.42) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: none !important;
+  border-radius: 10px !important;
+  padding: 0.8rem 1.5rem !important;
+  text-align: center;
+  width: auto !important;
+  max-width: 100%;
+}
+
+/* Center the pill inside hero */
+.hero-inner-v2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
