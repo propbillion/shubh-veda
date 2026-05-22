@@ -1,3 +1,15 @@
+// ============================================
+// Google Ads Conversion Tracking - ShubhVeda
+// Fires on every WhatsApp link click
+// ============================================
+document.addEventListener('click', function(e) {
+  var el = e.target.closest('a[href*="wa.me"]');
+  if (el && typeof gtag === 'function') {
+    gtag('event', 'conversion', {
+      'send_to': 'AW-17833027272/jX1dCPit0rEcEMjNubdC'
+    });
+  }
+});
 /* ============================================
    SHUBH VEDA v8 - Production JS
    Performance-optimized, no framework dependencies
