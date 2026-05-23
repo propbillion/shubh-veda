@@ -1,14 +1,53 @@
 // ============================================
 // Google Ads Conversion Tracking - ShubhVeda
-// Fires on every WhatsApp link click
+// Button-specific tracking via WhatsApp text
 // ============================================
 document.addEventListener('click', function(e) {
   var el = e.target.closest('a[href*="wa.me"]');
-  if (el && typeof gtag === 'function') {
-    gtag('event', 'conversion', {
-      'send_to': 'AW-17833027272/jX1dCPit0rEcEMjNubdC'
-    });
-  }
+  if (!el || typeof gtag !== 'function') return;
+
+  var href = el.href || '';
+  var label = 'whatsapp_general';
+
+  if (href.includes('site+visit') || href.includes('site_visit'))
+    label = 'site_visit_request';
+  else if (href.includes('Priority+Allocation') || href.includes('launch+price') || href.includes('pre-register') || href.includes('Pre-Register'))
+    label = 'pre_register';
+  else if (href.includes('floor+plan') || href.includes('floor_plan'))
+    label = 'floor_plan_request';
+  else if (href.includes('cost+sheet') || href.includes('cost_sheet'))
+    label = 'cost_sheet_request';
+  else if (href.includes('brochure') || href.includes('e-brochure'))
+    label = 'brochure_request';
+  else if (href.includes('sample+flat') || href.includes('Sample+Flat') || href.includes('sample%20flat'))
+    label = 'sample_flat_video';
+  else if (href.includes('master+plan') || href.includes('master_plan'))
+    label = 'master_plan_request';
+  else if (href.includes('tower+plan') || href.includes('tower_plan'))
+    label = 'tower_plan_request';
+  else if (href.includes('Ram+Mandir') || href.includes('ram+mandir'))
+    label = 'ram_mandir_enquiry';
+  else if (href.includes('video+conference') || href.includes('video_conference'))
+    label = 'video_conference_request';
+  else if (href.includes('walkthrough'))
+    label = 'walkthrough_video_request';
+  else if (href.includes('commercial') || href.includes('Commercial'))
+    label = 'commercial_enquiry';
+  else if (href.includes('inventory'))
+    label = 'inventory_request';
+  else if (href.includes('specifications') || href.includes('Specifications'))
+    label = 'specifications_request';
+
+  // Google Ads Primary Conversion
+  gtag('event', 'conversion', {
+    'send_to': 'AW-17833027272/jX1dCPit0rEcEMjNubdC'
+  });
+
+  // GA4 Button-Specific Event
+  gtag('event', label, {
+    'event_category': 'whatsapp_engagement',
+    'button_href': href.substring(0, 100)
+  });
 });
 /* ============================================
    SHUBH VEDA v8 - Production JS
